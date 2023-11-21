@@ -3,10 +3,10 @@
 }
 .signup-container{
     background-color: white;
-    width: 400px;
+    width: fit-content;
     margin: 20px auto;
     box-shadow: 0 0 10px black;
-    padding: 20px;
+    padding: 20px 40px;
     border-radius: 15px;
 }
 .input-label{
@@ -20,6 +20,15 @@
     border-radius: 5px;
 }
 .input-container{
-    margin: 10px auto;
+    margin: 20px auto;
     
+}
+.signup-btn{
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    padding: 10px 50px;
+    border-radius: 30px;
+    display: block;
+    margin: 20px auto;
 }
