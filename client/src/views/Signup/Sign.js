@@ -81,6 +81,7 @@ function SignUp(){
                       }}
                     />  
                 </div>
+                
                 <button 
                     type='button' 
                     className='signup-btn'

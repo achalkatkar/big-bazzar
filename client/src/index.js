@@ -4,7 +4,8 @@ import Home from './views/Home/home';
 import "./index.css";
 import SignUp from './views/Signup/Sign';
 import Login from './views/Login/Login';
-
+import Buy from './views/Buy/Buy';
+ 
 
 const root = ReactDom.createRoot(document.getElementById('root'));
 
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     {
         "path": "/login",
         "element": <Login/>
+    },
+    {
+        "path": "/buy/:id",
+        "element": <Buy/>
     }
 ])
 

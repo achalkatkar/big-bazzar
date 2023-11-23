@@ -16,11 +16,14 @@
 
 .btn-buy-now{
     background: black;
-    color: white;;
+    text-decoration: none;
+    color: white;
     display: block;
     margin: 10px auto;
     font-size: 20px;
     padding: 5px 20px;
     border-radius: 20px;
     cursor: pointer;
+    text-align: center;
+    width: 150px;
 }

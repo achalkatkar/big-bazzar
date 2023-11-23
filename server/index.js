@@ -5,6 +5,7 @@ dotenv.config();
 import mongoose from 'mongoose';
 import Product from './models/product.js';
 import User from './models/user.js';
+import Order from './models/order.js';
 
 const app = express();
 app.use(express.json());
@@ -138,6 +139,8 @@ app.post("/signup", async(req, res)=>{
 app.post("/login", async(req, res)=>{
     const {email, password} = req.body;
 
+
+
     const user = await User.findOne({email: email, password: password});
 
     if(user){
@@ -155,6 +158,26 @@ app.post("/login", async(req, res)=>{
         })
     }
     
+})
+
+app.post("/order", async(req, res)=>{
+    const {product, user, quantity, shippingAddress} = req.body;
+
+    const order = new Order({
+        product:product,
+        user:user,
+        quantity:quantity,
+        shippingAddress:shippingAddress,
+
+    });
+
+    const savedOrder = await order.save();
+
+    return res.json({
+        success:true,
+        data: savedOrder,
+        message: "Oreder placed successfully"
+    })
 })
 
 
