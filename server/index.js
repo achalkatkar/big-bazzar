@@ -7,6 +7,7 @@ import Product from './models/product.js';
 import User from './models/user.js';
 import Order from './models/order.js';
 
+
 const app = express();
 app.use(express.json());
 
@@ -177,6 +178,18 @@ app.post("/order", async(req, res)=>{
         success:true,
         data: savedOrder,
         message: "Oreder placed successfully"
+    })
+})
+app.get("/orders", async(req, res)=>{
+    const {id} = req.query;
+
+    const orders = await Order.find({user: id}).populate('product user');
+
+    res.json({
+        success: true,
+        data: orders,
+        message: "Orders retrived successfully"
+
     })
 })
 

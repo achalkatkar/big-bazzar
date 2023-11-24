@@ -54,8 +54,9 @@ export default function Buy () {
             user: user._id
         })
 
-        alert(response.data.message);
-        window.location.href = "/my-orders";    }
+        alert(response?.data?.message);
+        window.location.href = "/my-orders";    
+    }
 
     return (
         <div className="buy-container">

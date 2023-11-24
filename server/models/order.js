@@ -7,7 +7,7 @@ const orderShema = new Schema({
     },
     user:{
         type:  Schema.Types.ObjectId,
-        ref: "USer",
+        ref: "User",
     },
     quantity:{
         type: Number,
