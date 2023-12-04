@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./home.css";
 import axios from 'axios';
-import ProductCards from "../../component/ProductCards/ProductCards";
+import ProductCards from "../../Component/ProductCards/ProductCards";
 import { checkLogin } from "../../util/auth";
 
 

@@ -1,6 +1,8 @@
 import express, { response } from 'express';
 import dotenv from 'dotenv';
 dotenv.config();
+import path from 'path';
+const __dirname = path.resolve();
 
 import mongoose from 'mongoose';
 import Product from './models/product.js';
@@ -161,25 +163,38 @@ app.post("/login", async(req, res)=>{
     
 })
 
+
+
 app.post("/order", async(req, res)=>{
     const {product, user, quantity, shippingAddress} = req.body;
-
+  
     const order = new Order({
-        product:product,
-        user:user,
-        quantity:quantity,
-        shippingAddress:shippingAddress,
-
+      product: product,
+      user: user,
+      quantity: quantity,
+      shippingAddress: shippingAddress
     });
-
+  
+    try{
+  
     const savedOrder = await order.save();
-
-    return res.json({
-        success:true,
+   
+      res.json({
+        success: true,
         data: savedOrder,
-        message: "Oreder placed successfully"
-    })
-})
+        message: "Order placed successfully"
+      })
+    }
+    catch(e){
+      res.json({
+        success:false,
+        message: e.message
+      })
+    }
+  })
+
+    
+
 app.get("/orders", async(req, res)=>{
     const {id} = req.query;
 
@@ -192,6 +207,15 @@ app.get("/orders", async(req, res)=>{
 
     })
 })
+
+
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+
+    app.get('*', (req, res)=>{
+        res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+    });
+}
 
 
 const PORT = 5000;

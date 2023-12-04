@@ -60,18 +60,18 @@ export default function Buy () {
 
     return (
         <div className="buy-container">
-            <img src={product.image} className="buy-product-image"/>
+            <img src={product.image} className="buy-product-image" alt="img"/>
             <div>
                 <h1>{product.name}</h1>
                 <p>{product.description} </p>
                 <h2>₹{product.price}</h2>
 
                <div className="quantity-container">
-               <img src={ImgDec} onClick={decreaseQuantity} className="quantity-btn" />
+               <img src={ImgDec} onClick={decreaseQuantity} className="quantity-btn" alt="img-dec" />
 
                 <span className="quantity-text">{quantity}</span>
 
-                <img src={ImgInc} onClick={increaseQuantity} className="quantity-btn" />
+                <img src={ImgInc} onClick={increaseQuantity} className="quantity-btn" alt="img-inc"/>
                </div>
 
                <input type="text" 
