@@ -1,20 +1,19 @@
 import ReactDom from 'react-dom/client';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import Home from './Views/Home/Home'
+import Home from './Views/Sample/Sample'
 import "./index.css";
 import SignUp from './Views/Signup/Sign';
 import Login from './Views/Login/Login';
 import Buy from './Views/Buy/Buy';
 import MyOrders from './Views/Myorders/MyOrders';
+
+
  
 
 const root = ReactDom.createRoot(document.getElementById('root'));
 
 const router = createBrowserRouter([
-    {
-        "path": "/",
-        "element": <Home/>
-    },
+  
     {
         "path": "/signup",
         "element": <SignUp/>
@@ -30,6 +29,10 @@ const router = createBrowserRouter([
     {
         "path":"/my-orders",
         "element" : <MyOrders/>
+    },
+    {
+        "path":"/",
+        "element" : <Home/>
     }
 ])
 

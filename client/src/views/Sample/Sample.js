@@ -4,8 +4,6 @@ import axios from 'axios';
 import ProductCards from "../../Component/ProductCards/ProductCards";
 import { checkLogin } from "../../util/auth";
 
-
-
 function Home() {
     const [Products, setProducts] = useState([]);
     
